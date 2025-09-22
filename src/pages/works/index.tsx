@@ -44,7 +44,7 @@ const WorksPage = () => {
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-134 p-8 min-h-screen">
+        <aside className="w-110 p-8 min-h-screen">
           <div className="flex items-baseline mb-8 gap-4">
             <h1 className="text-[var(--Colors-Neutral-Black,#1C1C1C)] font-[AvantGarde Md BT] text-[60px] font-normal leading-normal">
               Works
@@ -107,8 +107,8 @@ const WorksPage = () => {
         className={`block font-medium text-xl leading-[30px] transition-all duration-300
           ${selectedCategory === category
             ? category === 'All'
-              ? 'text-black'               // ✅ All은 색상만 변경
-              : 'translate-x-6 text-black' // ✅ 나머지는 아이콘에 맞춰 오른쪽으로 이동
+              ? 'text-black'
+              : 'translate-x-6 text-black'
             : 'translate-x-0 text-gray-400 hover:text-gray-600'
           }`}
         >
@@ -121,20 +121,32 @@ const WorksPage = () => {
 
         {/* Main Content */}
         <main className="flex-1 p-8">
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 gap-y-8">
             {filteredProjects.map((project) => (
               <div key={project.id} className="group cursor-pointer">
                 {/* Project Image */}
-                <div className="aspect-[4/3] bg-gray-100 mb-4 rounded-lg overflow-hidden group-hover:opacity-80 transition-opacity">
+                <div className="aspect-[4/3] bg-gray-100 mb-2 relative transition-all group-hover:border-2 group-hover:border-[#00FF36]">
                   <img 
                     src={project.image} 
                     alt={project.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:opacity-80 transition-opacity"
                   />
+                  
+                  {/* 모서리 정사각형들 - 호버시에만 표시 */}
+                  <div className="absolute z-10 -top-1 -left-1 w-2 h-2 bg-[#fff] border-2 border-[#00FF36] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute z-10 -top-1 -right-1 w-2 h-2 bg-[#fff] border-2 border-[#00FF36] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute z-10 -bottom-1 -left-1 w-2 h-2 bg-[#fff] border-2 border-[#00FF36] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute z-10 -bottom-1 -right-1 w-2 h-2 bg-[#fff] border-2 border-[#00FF36] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  {/* 우측 하단 제목 박스 - 호버시에만 표시 */}
+                  <div className="absolute -bottom-7.2 left-2 bg-[#00FF36] px-2 py-1 text-[14px] font-medium text-black shadow-lg opacity-0 
+                  font-[SUIT] group-hover:opacity-100 transition-opacity duration-300">
+                    Artwork Name Designer
+                  </div>
                 </div>
                 
-                {/* Project Name */}
-                <h3 className="text-sm font-medium group-hover:text-green-500 transition-colors">
+                {/* Project Name - 호버시 사라짐 */}
+                <h3 className="text-[14px] font-[SUIT] text-[#000] font-medium group-hover:opacity-0 transition-opacity duration-300">
                   {project.name}
                 </h3>
               </div>
