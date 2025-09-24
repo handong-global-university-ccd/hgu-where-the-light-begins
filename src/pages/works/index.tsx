@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import Header from '../../components/Header'; // 실제 경로에 맞게 수정해주세요
+import Header from '../../components/Header';
 
-// 타입 정의
 type CategoryType = 'All' | 'Communication Design' | 'Service Design' | 'UX Design' | 'Industrial Design';
 
 interface Project {
@@ -33,7 +32,6 @@ const WorksPage = () => {
     ? projects 
     : projects.filter(project => project.category === selectedCategory);
 
-  // 카테고리 변경 핸들러
   const handleCategoryChange = (category: CategoryType) => {
     setSelectedCategory(category);
   };
@@ -43,7 +41,7 @@ const WorksPage = () => {
       <Header />
 
       <div className="flex">
-        {/* Sidebar */}
+        {/* 사이드 바 */}
         <aside className="w-110 p-8 min-h-screen">
           <div className="flex items-baseline mb-8 gap-4">
             <h1 className="text-[var(--Colors-Neutral-Black,#1C1C1C)] font-[AvantGarde Md BT] text-[60px] font-normal leading-normal">
@@ -119,12 +117,12 @@ const WorksPage = () => {
   </nav>
 </aside>
 
-        {/* Main Content */}
+        {/* 작품 배열 */}
         <main className="flex-1 p-8">
           <div className="grid grid-cols-3 gap-y-8">
             {filteredProjects.map((project) => (
               <div key={project.id} className="group cursor-pointer">
-                {/* Project Image */}
+                {/* 작품 이미지 */}
                 <div className="aspect-[4/3] bg-gray-100 mb-2 relative transition-all group-hover:border-2 group-hover:border-[#00FF36]">
                   <img 
                     src={project.image} 
