@@ -1,12 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
-import PCS_P from "../../img/박찬송 교수님 1.png";
-import LEJ_P from "../../img/이은종 교수님 1.png";
-import LJS_P from "../../img/이재선 교수님 1.png";
-import LJH_P from "../../img/이주현 교수님 1.png";
-import LJS2_P from "../../img/이중섭 교수님 3.png";
-import LJG_P from "../../img/이진구 교수님 1.png";
-import CIW_P from "../../img/최인욱 교수님 1.png";
+
+import PCS_P from "../../img/박찬송 교수님 1.png";
+import LEJ_P from "../../img/이은종 교수님 1.png";
+import LJS_P from "../../img/이재선 교수님 1.png";
+import LJH_P from "../../img/이주현 교수님 1.png";
+import LJS2_P from "../../img/이중섭 교수님 3.png";
+import LJG_P from "../../img/이진구 교수님 1.png";
+import CIW_P from "../../img/최인욱 교수님 1.png";
 
 const topRowPeople = [
   { name: '박찬송 교수님', img: PCS_P },
