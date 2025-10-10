@@ -7,6 +7,7 @@ import Interviews from "../../components/AboutPage/Interviews";
 import ThanksTo from "../../components/AboutPage/ThanksTo";
 import Executives from '@/components/AboutPage/Executives';
 import Sponsers from '@/components/AboutPage/Sponser';
+import Footer from '@/components/Footer';
 
 const AboutPage = () => {
   const symbolsContainerRef = useRef<HTMLDivElement>(null);
@@ -23,6 +24,7 @@ const AboutPage = () => {
       <ThanksTo />
       <Executives />
       <Sponsers />
+      <Footer />
     </div>
   )
 }
