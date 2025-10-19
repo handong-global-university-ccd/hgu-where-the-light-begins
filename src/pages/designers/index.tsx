@@ -127,7 +127,6 @@ export default function DesignersPage() {
           <div className="lg:px-8">
             <div className="border-b border-[#D2D2D2]">
               {filteredDesigners.map((designer, index) => {
-                // isHovered 조건은 그대로 유지
                 const isHovered = hoveredId === designer.id;
                 const isPreviousHovered = index > 0 && hoveredId === filteredDesigners[index - 1].id;
 
@@ -140,7 +139,6 @@ export default function DesignersPage() {
                     `}
                     onMouseEnter={() => setHoveredId(designer.id)}
                     onMouseLeave={() => {
-                        // 검색 결과가 1개일 때는 hoveredId를 null로 설정하지 않음
                         if (filteredDesigners.length !== 1) {
                             setHoveredId(null);
                         }
@@ -150,11 +148,11 @@ export default function DesignersPage() {
                     <div className="p-4 lg:py-5 lg:px-2">
                       <div className="flex items-start justify-start lg:gap-x-[200px]">
                         <div className="flex items-start gap-30">
-                          <span className={`${suitMedium.variable} w-8 text-[#1C1C1C text-sm lg:text-[24px] lg:w-auto font-[400]`}>{designer.id}</span>   
+                          <span className={`${suitMedium.variable} w-8 text-[#1C1C1C] text-sm lg:text-[24px] lg:w-auto transition-all ${isHovered ? 'font-[600]' : 'font-[400]'}`}>{designer.id}</span>   
                         </div>
-                        <span className={`${suitMedium.variable} w-8 text-[#1C1C1C text-sm lg:text-[24px] lg:w-auto font-[400]`}>{designer.name}</span>
-                          <span className={`${suitMedium.variable} w-8 text-[#1C1C1C text-sm font-[400] lg:hidden`}>{designer.major}</span>
-                        <span className={`${suitMedium.variable} hidden lg:block font-[400] text-[24px]`}>{designer.major}</span>
+                        <span className={`${suitMedium.variable} w-8 text-[#1C1C1C] text-sm lg:text-[24px] lg:w-auto transition-all ${isHovered ? 'font-[600]' : 'font-[400]'}`}>{designer.name}</span>
+                          <span className={`${suitMedium.variable} w-8 text-[#1C1C1C] text-sm lg:hidden transition-all ${isHovered ? 'font-[600]' : 'font-[400]'}`}>{designer.major}</span>
+                        <span className={`${suitMedium.variable} hidden lg:block text-[24px] transition-all ${isHovered ? 'font-[600]' : 'font-[400]'}`}>{designer.major}</span>
                       </div>
                     </div>
                   </div>
